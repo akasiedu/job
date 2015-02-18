@@ -1,10 +1,9 @@
 <template name="jobs">
 	{{#if currentUser}}
-{{#afModal class="btn btn-primary" collection="Jobs" operation="insert"}}
-	Add a new Job
-	{{/afModal}}
-	{{> autoformModals collection="Jobs" id="insertJobForm" type="insert"}}
-
+		{{#afModal class="btn btn-primary" collection="Jobs" operation="insert"}}
+			Add a new Job
+		{{/afModal}}
+		{{> autoformModals collection="Jobs" id="insertJobForm" type="insert"}}
 	{{/if}}
 
 
