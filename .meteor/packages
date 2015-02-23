@@ -5,8 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 twbs:bootstrap
 fortawesome:fontawesome
 aldeed:autoform
@@ -19,3 +17,7 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 accounts-github
 accounts-google
+accounts-facebook
+sacha:spin
+autopublish
+insecure

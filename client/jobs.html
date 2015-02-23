@@ -1,18 +1,25 @@
 <template name="jobs">
-	{{#if currentUser}}
-		{{#afModal class="btn btn-primary" collection="Jobs" operation="insert"}}
-			Add a new Job
-		{{/afModal}}
-		{{> autoformModals collection="Jobs" id="insertJobForm" type="insert"}}
-	{{/if}}
+	<h1>{{pageTitle}}</h1>
 
+
+	<p>
+		<a href="{{pathFor 'home'}}" class="btn btn-default"><i class="fa fa-plus"></i> Create job</a>
+
+		<a href="{{pathFor 'jobs'}}" class="btn btn-danger">All jobs</a>
+
+		<a href="{{pathFor 'jobsCategory' category='html'}}" class="btn btn-primary">HTML</a>
+
+		<a href="{{pathFor 'jobsCategory' category='javascript'}}" class="btn btn-success">JavaScript</a>
+
+		<a href="{{pathFor 'jobsCategory' category='css'}}" class="btn btn-info">Css</a>
+	</p>
 
 		<div class="container">
     	<div class="row">
 			<div class="col-md-6">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title">Developers</h3>
+						<h3 class="panel-title">Jobs</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 								<i class="glyphicon glyphicon-filter"></i>
@@ -37,12 +44,36 @@
 								<!-- <td>1</td> -->
 								<td>{{title}}</td>
 								<td>{{jobsdescription}}</td>
-								<td>{{contact}}} </td>
+								<td>{{contact}} </td>
+								{{#if currentUser}}
 								<td>{{#afModal class="btn btn-primary" collection="Jobs" operation="update" doc=_id}}
-									Update post
-									{{/afModal}}</td>
-								</tr>
+									Update job
+									{{/afModal}}
+									{{> autoformModals collection="Jobs" id="insertJobsForm" type="insert"}}
+								</td>
+
+								<td>
+									{{#afModal class="btn btn-primary" collection="Jobs" operation="remove" doc=_id}}
+									Delete
+									{{/afModal}}
+									{{> autoformModals collection="Jobs" id="insertJobsForm" type="insert"}}
+								</td>
+
+								{{else}}
+
+								<td>
+									{{#afModal class="btn btn-primary" collection="Applications" operation="insert"}}
+                   				 Apply
+			                  		{{/afModal}}
+			            			{{> autoformModals collection="Applications" id="insertApplicationsForm" type="insert"}}
+								</td>
+								{{/if}}
+								<td>
+									<a href="{{pathFor 'jobDetail' _id=_id}}" class="btn btn-default">Read more</a>
+								</td>
+							</tr>
 								{{/each}}
+
 						</tbody>
 					</table>
 				</div>
@@ -50,4 +81,6 @@
 		</div>
 	</div>
 </template>
+
+
 

@@ -19,5 +19,26 @@ Jobs.attachSchema(new SimpleSchema({
         type: String,
         regEx: SimpleSchema.RegEx.Email,
         label: "Contact Email"
+    },
+    category: {
+        type: String,
+        autoform: {
+            options: function(){
+                return [
+                    {value: 'html', label: 'HTML'},
+                    {value: 'javascript', label: 'JavaScript'},
+                    {value: 'css', label: 'CSS'}
+                ]
+            }
+        }
+    },
+    owner: {
+        type: String,
+        autoform: {
+            omit: true
+        },
+        autoValue: function(){
+            return Meteor.userId();
+        }
     }
 }));
