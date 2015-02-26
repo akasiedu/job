@@ -42,3 +42,15 @@ Jobs.attachSchema(new SimpleSchema({
         }
     }
 }));
+
+// Jobs.allow({
+//     insert: function (userId, doc) {
+//         return  userId;
+//     },
+//     update: function (userId, doc){
+//         return  doc.userId === userId;
+//     }, 
+//     remove: function (userId, doc){
+//         return doc.userId === userId;
+//     }
+// });

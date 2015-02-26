@@ -1,6 +1,6 @@
 <template name="jobs">
 	<h1>{{pageTitle}}</h1>
-
+	
 
 	<p>
 		<a href="{{pathFor 'home'}}" class="btn btn-default"><i class="fa fa-plus"></i> Create job</a>
@@ -45,7 +45,7 @@
 								<td>{{title}}</td>
 								<td>{{jobsdescription}}</td>
 								<td>{{contact}} </td>
-								{{#if currentUser}}
+								{{#if $eq owner User._id}}
 								<td>{{#afModal class="btn btn-primary" collection="Jobs" operation="update" doc=_id}}
 									Update job
 									{{/afModal}}
@@ -58,18 +58,9 @@
 									{{/afModal}}
 									{{> autoformModals collection="Jobs" id="insertJobsForm" type="insert"}}
 								</td>
-
-								{{else}}
-
-								<td>
-									{{#afModal class="btn btn-primary" collection="Applications" operation="insert"}}
-                   				 Apply
-			                  		{{/afModal}}
-			            			{{> autoformModals collection="Applications" id="insertApplicationsForm" type="insert"}}
-								</td>
 								{{/if}}
 								<td>
-									<a href="{{pathFor 'jobDetail' _id=_id}}" class="btn btn-default">Read more</a>
+									<a href="{{pathFor 'jobDetail' _id=_id}}" class="btn btn-default">DETAILS</a>
 								</td>
 							</tr>
 								{{/each}}
@@ -81,6 +72,5 @@
 		</div>
 	</div>
 </template>
-
 
 

@@ -17,5 +17,23 @@ Applications.attachSchema(new SimpleSchema({
         type: String,
         regEx: SimpleSchema.RegEx.Email,
         label: "Contact Email"
+    },
+    jobId: {
+        type: String,
+        autoform: {
+            omit: true
+        }
     }
+    // owner: {
+    //     type: String,
+    //     autoform: {
+    //         omit: true
+    //     },
+    //     autoValue: function(){
+    //         if (this.isInsert){
+    //             return Meteor.userId();
+    //         }
+    //     }
+    // }
+
 }));

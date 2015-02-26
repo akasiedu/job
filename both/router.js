@@ -1,3 +1,5 @@
+// var userId = Meteor.userId();
+
 Router.configure({
 	layoutTemplate: "masterLayout",
 	loadingTemplate: "loading",
@@ -24,6 +26,17 @@ Router.route('/jobs', function(){
 	}
 })
 
+Router.route('/dashboard', function(){
+	this.render('dashboard');
+},{
+	name: 'dashboard',
+	data: function(){
+		return{
+			jobs: Jobs.find({owner: Meteor.userId()}).fetch()
+		}
+	}
+})
+
 Router.route('/jobs/:category/', function(){
 	this.render('jobs');
 },{
@@ -38,7 +51,7 @@ Router.route('/jobs/:category/', function(){
 })
 
 Router.route('/jobs/details/:_id', function(){
-	this.render('/projectDetail');
+	this.render('/jobDetail');
 },{
 	name: 'jobDetail',
 

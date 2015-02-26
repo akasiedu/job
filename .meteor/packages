@@ -19,5 +19,4 @@ accounts-github
 accounts-google
 accounts-facebook
 sacha:spin
-autopublish
-insecure
+raix:handlebar-helpers
